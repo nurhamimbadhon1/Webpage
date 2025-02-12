@@ -70,7 +70,7 @@ background-color: var(--front-color); /* Front color */
 }
 
 .card .back {
-background-image: url('./doc/Flowers.jpg'); /* Replace with your image URL */
+background-image: url('Flowers.jpg'); /* Replace with your image URL */
     background-size: cover; /* Ensures the image covers the whole back */
     background-position: center;
     color: white; /* White text for contrast */
