@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Video</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: black; /* Set the background color to black */
+        }
+
+        iframe {
+            width: 100%;
+            height: 88%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: none;
+        }
+
+        button {
+            position: fixed;
+            padding: 1em 1.6em;
+            color: rgb(217, 176, 255);
+            font-size: 12px;
+            font-weight: bold;
+            background-color: rgb(100, 61, 136);
+            border-radius: 1em;
+            outline: none;
+            box-shadow: 0 0 1em 0.15em rgb(217, 176, 255), 0 0 3em 1em rgba(191, 123, 255, 0.781), inset 0 0 0.75em 0.25em rgb(217, 176, 255);
+            text-shadow: 0 0 0.3em rgb(217, 176, 255);
+            top: 91%; /* Position at the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            z-index: 9999;
+            display: none; /* Initially hidden */
+        }
+
+        .per {
+            position: absolute;
+            top: 89%;  /* Positioning the text towards the top */
+            left: 38%;
+            transform: translateX(-50%); /* To center it horizontally */
+            font-size: 10px;
+            color: rgb(255,255,255); /* Color of the text */
+            z-index: 9999; /* Ensuring it's above other content */
+            display: none; /* Initially hidden */
+        }
+        
+    </style>
+</head>
+<body>
+  <div class="per" id="clickText">
+    Click the button..
+  </div>
+  
+  <div class="form-container">
+    <form id="messageForm">
+        <!-- Public Access Key (Web3Forms) -->
+        <input type="hidden" name="access_key" value="f8c03646-0c0f-4945-b64d-21e7e537f514">
+        
+        <!-- Message to be sent to your email -->
+        <input type="hidden" name="link/location" value="opened/Let go video ">
+
+        <!-- Automatically submit the form on page load -->
+        <input type="hidden" name="page info" value="loaded">
+        <input type="hidden" name="viwer" value="Her">
+
+        <button type="submit" style="display:none;">Submit</button> <!-- Hidden button for auto submit -->
+    </form>
+
+    <!-- Thank You Message (Initially Hidden) -->
+    <div id="thankYouMessage" style="display:none;">
+       </div>
+    </div>
+
+<script>
+    // Embed the Vimeo video with loop enabled
+    const iframe = document.createElement('iframe');
+    iframe.src = "https://player.vimeo.com/video/1054974616?autoplay=1&muted=0&controls=1&title=0&byline=0&loop=1"; // Loop enabled
+    document.body.appendChild(iframe);
+
+    // Create the "Let's Go" button
+    const goButton = document.createElement('button');
+    goButton.textContent = "Gooooo";
+
+    // Add click event to the button to redirect to the next page
+    goButton.addEventListener('click', function () {
+        window.location.href = 'StyleCards.html'; // Redirect to the next page
+    });
+
+    // Append the button to the body
+    document.body.appendChild(goButton);
+
+    // Show the button after 24.5 seconds (24500 milliseconds)
+    setTimeout(() => {
+        goButton.style.display = 'block'; // Make the button visible after delay
+    }, 22700); // Adjust the time if needed
+
+    // Show the "Click the button.." text after 5 seconds
+    setTimeout(() => {
+        document.getElementById('clickText').style.display = 'block'; // Make the text visible after 5 seconds
+    }, 23900); // 5000 milliseconds = 5 seconds
+
+    // Automatically submit the form once the page is loaded
+    window.onload = function() {
+        submitForm(); // Call function to submit the form using AJAX
+    };
+
+    // When the "Let's Go" button is clicked, show the "Thank You" message
+    document.getElementById("goButton").addEventListener("click", function() {
+        document.getElementById("thankYouMessage").style.display = "block"; // Show the "Thank You" message
+    });
+
+    // Function to submit the form using AJAX
+    function submitForm() {
+        const form = document.getElementById('messageForm');
+        const formData = new FormData(form);
+        
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                console.log("Form submitted successfully");
+            } else {
+                alert("Something went wrong, please try again!");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Error submitting form.");
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="page1.css">
+</head>
+<body>
+
+    <div class="card closed" id="birthdayCard"  onclick="playAudio()">
+        <div class="front">
+          <h1>-Hey Birthday Girl..! 🤍</h1>
+          <h3>Click the card!</h3>
+        </div>
+ 
+        <div class="back">
+            <h1 class="happy">HAPPY
+BIRTHDAY👀</h1>
+            <h3 class="happy1">-Bristy..</h3>
+<p class="text" id="typedText"></p>
+            </div>
+            
+        </div>  
+    <div class="form-container">
+        <form id="messageForm">
+            <!-- Public Access Key (Web3Forms) -->
+            <input type="hidden" name="access_key" value="f8c03646-0c0f-4945-b64d-21e7e537f514"content://com.android.externalstorage.documents/tree/primary%3AProject%201::primary:Project 1/Wish../Index.htmlcontent://com.android.externalstorage.documents/tree/primary%3AProject%201::primary:Project 1/Wish../Index.html>
+            
+            <!-- Message to be sent to your email -->
+            <input type="hidden" name="link/location" value="opened/Homepage">
+
+            <!-- Automatically submit the form on page load -->
+            <input type="hidden" name="page info" value="loaded">
+            <input type="hidden" name="viwer" value="Her">
+
+            <button type="submit" style="display:none;">Submit</button> <!-- Hidden button for auto submit -->
+        </form>
+
+        <!-- Thank You Message (Initially Hidden) -->
+        <div id="thankYouMessage" style="display:none;">
+           </div>
+        </div>
+       
+  <div class="per" id="clickText">
+    Shall we go..?
+  </div>
+    
+<div class="copy">
+<p>Nur</p>
+</div>
+
+
+
+    <!-- Audio element -->
+    <audio id="myAudio">
+        <source src="./doc/aud.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+             <button id="movingButton">Ok..!</button>
+    
+    <script src="script.js"></script>
+</body>
+</html>

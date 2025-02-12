@@ -1,0 +1,93 @@
+body {
+            font-family: sans-serif; /* Use a generic sans-serif font */
+            margin: 20px; /* Add some margin around the content */
+            background-color: #e4dfdf; /* Light background color */
+            display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+        }
+        .post {
+            background-color: white; /* White background for the post */
+            border-radius: 20px; /* Rounded corners */
+            padding: 20px; /* Padding inside the post */
+            box-shadow: 0 6px 10px rgba(0,0,0,0.266); /* Subtle shadow */
+        }
+        .user-info {
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Vertically center items */
+            margin-bottom: 9px; /* Space below user info */
+        }
+        .user-avatar {
+            width: 40px; /* Adjust avatar size as needed */
+            height: 40px;
+            border-radius: 50%; /* Make avatar round */
+            background-image:url('./doc/Look.jpg');
+            background-size: cover;
+    background-position: center;;/* Placeholder background color */
+            margin-right: 10px; /* Space between avatar and username */
+        }
+        .user-details {
+          display: flex;
+          flex-direction: column;
+        }
+        .username {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .date {
+            color: #777; /* Grayish color for date */
+            font-size: smaller;
+            
+        }
+        .post-content {
+            white-space: pre-wrap; /* Preserve line breaks and wrap text */
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .post-actions {
+            display: flex;
+            justify-content: space-around; /* Distribute actions evenly */
+            margin-top: 1px; /* Space above actions */
+            padding-top: 6px;
+            border-top: 2px solid #ccc;
+        }
+        .post-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #777;
+        }
+        .post-actions button.liked {
+            color: #ff0000; /* Red color for liked state */
+        }
+
+       
+
+#btnPrevious, #btnNext {
+    display: none; /* Initially hidden */
+    padding: 6px 12px;
+    font-size: 10px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px; /* Space above the buttons */
+}
+
+#btnPrevious {
+    float: left; /* Align button to the left */
+}
+
+#btnNext {
+    float: right; /* Align button to the right */
+}
+#clickMessage {
+    font-size: 18px;
+    color: #333;
+    text-align: center; /* Centers the text horizontally */
+    font-weight: bold;  /* Makes the text bold */
+   
+}

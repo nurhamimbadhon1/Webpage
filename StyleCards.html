@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Design</title>
+  <style>
+  
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
+            height: 120%;
+            margin: 20px;
+            background-color: #101010;
+            font-family: Arial, sans-serif;
+            width: 90vw; /* Prevent horizontal overflow */
+            overflow-x: hidden; /* Lock horizontal scroll */
+            height: calc(100% - 10px); /* Reduce the height by 10px to leave a gap at the bottom */
+
+        }
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 20px; /* Added some space for the thank you text */
+}
+        
+        :root {
+            --glow-color: rgba(217, 176, 255, 0.8);
+            --glow-spread-color: rgba(191, 123, 255, 0.4);
+            --front-color: #0d0d0d;
+            --back-color: #c52727;
+        }
+
+.card {
+    width: 250px;
+    height: 350px;
+    perspective: 1000px;
+    position: absolute;
+    cursor: pointer;
+    border: 2px solid var(--glow-color);
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--front-color);
+    box-shadow: 
+        0 0 10px 2px var(--glow-color),
+        0 0 20px 5px var(--glow-spread-color),
+        inset 0 0 5px 1px var(--glow-color);
+    transition: transform 0.7s, box-shadow 0.3s;
+    bottom: 10px; /* Add a 10px gap from the bottom of the page */
+}
+
+
+        .card .front, .card .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 15px;
+            transition: transform 0.7s;
+        }
+
+        .card .front {
+            background-color: var(--front-color);
+            color: white;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .card .back {
+            color: white;
+            transform: rotateY(180deg);
+            text-shadow: 0 0 10px var(--glow-color);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .card.open .front {
+            transform: rotateY(180deg);
+        }
+
+        .card.open .back {
+            transform: rotateY(0deg);
+        }
+
+        .card:hover {
+            box-shadow: 
+                0 0 10px 5px var(--glow-color),
+                0 0 30px 10px var(--glow-spread-color),
+                inset 0 0 0px 0px var(--glow-color);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+            color: white;
+        }
+
+        .text {
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: left;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%); /* Adjust for exact centering */
+    
+            font-weight: bold;
+            font-style: italic;
+            color: white;
+        }
+        
+    #thankYou {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+        position: relative;
+        color: white;
+        padding-top: 10px;
+        border-top: 2px solid #fff; /* Add a border line on top of the text */
+        margin-top: 20px;
+    }
+    
+
+      
+    </style>
+    <style>
+              #t1 { top: 50px; left:50%;
+              transform: translateX(-50%);  }
+        #t2 { top: 50px; left: 30%; }
+        #t3 { top: 50px; left: 30%; }
+         #t4 { top: 50px; left: 30%; }
+      </style>
+      <style>
+        
+        
+          /* First Card */
+        #firstCard {
+            top: 52px;
+            left: 29px;
+            background-image: url('./doc/She.jpg'); /* First card front */
+            background-size: cover;
+            background-position: center;
+        }
+        #firstCard .back {
+            background-image: url('./doc/13Febmoon.png'); /* First card back */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Second Card */
+        #secondCard {
+            top: 56%;
+            right: 29px;
+            background-image: url('./doc/Flowers.jpg'); /* Second card front */
+            background-size: cover;
+            background-position: center;
+        }
+        #secondCard .back {
+            background-image: url('./doc/anothermoon.jpg'); /* Second card back */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Third Card */
+        #thirdCard {
+            top: 105.3%;
+            left: 29px;
+            background-image: url('./doc/Us.jpg'); /* Third card front */
+            background-size: cover;
+            background-position: center;
+        }
+        #thirdCard .back {
+            background-image: url('Galaxy.jpg'); /* Third card back */
+            background-size: cover;
+            background-position: center;
+        }
+#fourCard {
+    top: 155.5%; /* Adjust this to push the card up a bit */
+    right: 29px;
+    background-image: url('Star.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#fourCard .back {
+    background-image: url('Galaxy.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#fiveCard {
+    top: 205%; /* Adjust this to push the card up a bit */
+    left: 29px;
+    background-image: url('Star.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#fiveCard .back {
+    background-image: url('Galaxy.jpg');
+    background-size: cover;
+    background-position: center;
+}
+    </style>
+</head>
+<body>
+
+  <div class="container">
+       <!-- First Card -->
+    <div class="card closed" id="firstCard">
+        <div class="front">
+            <h1>Today's Moon 🤍</h1>
+        </div>
+        <div class="back">
+            <h1 class="happy"><br></h1>
+            <p class="text" id="t1">Full Moon</p>
+        </div>
+    </div>
+
+    <!-- Second Card -->
+    <div class="card closed" id="secondCard">
+        <div class="front">
+            <h1>Another Moon 🌙</h1>
+        </div>
+        <div class="back">
+            <h1 class="happy"><br></h1>
+            <p class="text" id="t2">👀</p>
+        </div>
+    </div>
+
+    <!-- Third Card -->
+    <div class="card closed" id="thirdCard">
+        <div class="front">
+            <h1>Shining Stars ✨</h1>
+        </div>
+        <div class="back">
+            <h1 class="happy"><br></h1>
+            <p class="text" id="t3">Galaxy View</p>
+        </div>
+    </div>
+        <!-- 4th Card -->
+    <div class="card closed" id="fourCard">
+        <div class="front">
+            <h1>Shining Stars ✨</h1>
+        </div>
+        <div class="back">
+            <h1 class="happy"><br></h1>
+            <p class="text" id="t4"></p>
+        </div>
+    </div>
+            <!-- 5th Card -->
+    <div class="card closed" id="fiveCard">
+        <div class="front">
+            <h1>Shining Stars ✨</h1>
+        </div>
+        <div class="back">
+            <h1 class="happy"><br></h1>
+            <p class="text" id="t5"></p>
+        </div>
+    </div>
+        
+        </div>
+<div class="text">Click all cards</div>
+<!-- Thank you text -->
+<div id="thankYou">Thank You!</div>
+
+    <script>
+        function handleCardClick(cardId) {
+            var card = document.getElementById(cardId);
+            var audio = document.getElementById('clickAudio');
+            audio.play();
+            card.classList.toggle('closed');
+            card.classList.toggle('open');
+        }
+
+        document.getElementById('firstCard').addEventListener('click', function() {
+            handleCardClick('firstCard');
+        });
+
+        document.getElementById('secondCard').addEventListener('click', function() {
+            handleCardClick('secondCard');
+        });
+
+        document.getElementById('thirdCard').addEventListener('click', function() {
+            handleCardClick('thirdCard');
+        });
+        document.getElementById('fourCard').addEventListener('click', function() {
+            handleCardClick('fourCard');
+        });
+        document.getElementById('fiveCard').addEventListener('click', function() {
+            handleCardClick('fiveCard');
+        });
+    </script>
+    
+
+    <audio id="clickAudio" src="./doc/Call.mp3" preload="auto" loop></audio>
+</body>
+</html>

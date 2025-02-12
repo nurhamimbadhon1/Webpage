@@ -1,0 +1,252 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #101010; /* Dark background to make the glow stand out */
+    font-family: Arial, sans-serif;
+     overflow: hidden;
+     position: relative;
+}
+
+:root {
+    --glow-color: rgba(217, 176, 255, 0.8); /* Soft purple glow */
+    --glow-spread-color: rgba(191, 123, 255, 0.4); /* Lighter spread for a subtle effect */
+    --front-color: #0d0d0d; /* Front of the card is black */
+    --back-color: #c52727; /* Back of the card is red */
+}
+
+
+.card {
+    width: 330px;
+    height: 450px;
+       top: 6%; /* Position at the top */
+/*    left: 10px; /* Position at the left */
+    perspective: 1000px;
+    position: absolute;
+    cursor: pointer;
+    border: 2px solid var(--glow-color); /* Glowing border */
+    border-radius: 15px;
+    background-image: url('https://i.postimg.cc/W3pHfCVt/Cover.jpg');
+    background-size: cover;
+    background-position: center;
+background-color: var(--front-color); /* Front color */
+    box-shadow: 
+        0 0 10px 2px var(--glow-color),
+        0 0 20px 5px var(--glow-spread-color),
+        inset 0 0 10px 2px var(--glow-color);
+    outline: none;
+    transition: transform 0.7s, box-shadow 0.3s;
+}
+
+.card.closed .front {
+    transform: rotateY(0deg);
+}
+
+.card.closed .back {
+    transform: rotateY(180deg);
+}
+
+.card .front, .card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    transition: transform 0.7s;
+}
+.card .front {
+    background-color: var(--front-color); /* Black front */
+
+  
+    
+    color: white; /* White text for contrast */
+    text-shadow: 0 0 10px var(--glow-color); /* Glow effect on text */
+}
+
+.card .back {
+background-image: url('./doc/Flowers.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Ensures the image covers the whole back */
+    background-position: center;
+    color: white; /* White text for contrast */
+    transform: rotateY(180deg);
+    text-shadow: 0 0 10px var(--glow-color); /* Glow effect on text */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card.open .front {
+    transform: rotateY(180deg);
+}
+
+.card.open .back {
+    transform: rotateY(0deg);
+}
+
+.card:hover {
+    box-shadow: 
+        0 0 15px 5px var(--glow-color),
+        0 0 30px 10px var(--glow-spread-color),
+        inset 0 0 15px 5px var(--glow-color);
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0;
+    color: white;
+}
+
+p{
+  color: white;
+  font-size: 13px;
+  position: absolute;
+  top: 85%;
+  left: 87%;
+  z-index: 999; /* Ensure it’s on top */
+}
+
+        .per {
+            position: absolute;
+            top: 84%;  /* Positioning the text towards the top */
+            left: 52.4%;
+            transform: translateX(-50%); /* To center it horizontally */
+            font-size: 18px;
+            color: rgb(255,255,255); /* Color of the text */
+            z-index: 9999; /* Ensuring it's above other content */
+            display: none; /* Initially hidden */
+            font-weight: bold;
+            font-style: italic;
+            
+        }
+
+    button {
+      --glow-color: rgb(217, 176, 255);
+      --glow-spread-color: rgba(191, 123, 255, 0.781);
+      --btn-color: rgb(100, 61, 136);
+      border: 0.25em solid var(--glow-color);
+      padding: 1em 3em;
+      color: var(--glow-color);
+      font-size: 15px;
+      font-weight: bold;
+      background-color: var(--btn-color);
+      border-radius: 1em;
+      outline: none;
+      box-shadow: 
+        0 0 1em 0.25em var(--glow-color),
+        0 0 4em 1em var(--glow-spread-color),
+        inset 0 0 0.75em 0.25em var(--glow-color);
+      text-shadow: 0 0 0.5em var(--glow-color);
+      position: absolute; /* Position absolute for movement */
+      transition: all 0.3s;
+    }
+    /* Animation to fade out the button */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Apply this class to the button when you want it to fade out */
+button {
+    transition: opacity 1s ease;
+}content://com.android.externalstorage.documents/tree/primary%3AProject%201::primary:Project 1/Wish../page1.css
+
+    button::after {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      top: 120%;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: var(--glow-spread-color);
+      filter: blur(2em);
+      opacity: 0.7;
+      transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+    }
+
+    button:active {
+      color: var(--btn-color);
+      background-color: var(--glow-color);
+      box-shadow: 
+        0 0 0.6em 0.25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 0.5em 0.25em var(--glow-color);
+    }
+    #movingButton {
+    position: absolute; /* এটি যোগ করতে হবে */
+    left: 35%;
+    top: 75%;
+   display: none; /* প্রথমে বাটন লুকানো থাকবে */
+    color: white;
+    transition: left 0.4s ease, top 0.4s ease; /* Smooth movement */
+}
+    .happy {
+      white-space: pre-wrap; /* Preserve line breaks and wrap text */
+      line-height: 30px;
+      font-family: 'Arial', sans-serif;
+      font-size:2rem;
+      font-weight:
+      color: #e3dcdc; /* White text color */
+      position: absolute;
+      top: 12px;
+      left :10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+
+    .happy::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 200% auto;
+      -webkit-mask: linear-gradient(#6a64e5, transparent);
+      mask: linear-gradient(#4c69d4, transparent);
+      animation: shine 3s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+        .happy1 {
+      font-family: 'Arial', sans-serif;
+      font-size:1.6rem;
+      font-weight:
+      color: white; /* White text color */
+      position: absolute;
+      top: 12%;
+      left :8px;
+      
+      letter-spacing: 2px;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+.text {
+    white-space: pre-wrap; /* লাইন ব্রেক সংরক্ষণ এবং টেক্সট মোড়ানো */
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left; /* টেক্সট বাম দিকে রাখবে */
+    position: absolute;
+    top: 120px; /* প্রয়োজনমতো সামঞ্জস্য করো */
+    left: 10px; /* প্রয়োজনমতো সামঞ্জস্য করো */
+    width: 80%; /* টেক্সটের প্রস্থ ঠিক রাখা */
+}
+.highlight {
+    font-size: 2.5rem; /* Adjust the size as needed */
+    color: #ff4081; /* Example: Change color */
+    font-weight: bold; /* Make it bold if desired */
+}
